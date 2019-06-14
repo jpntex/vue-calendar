@@ -18,12 +18,12 @@ export default {
 
 <style lang="scss">
 #app {
-  text-align: center;
   margin-top: 20px;
   padding: 20px;
 
   h1 {
     margin-bottom: 30px;
+    text-align: center;
   }
 
   .calendar {
