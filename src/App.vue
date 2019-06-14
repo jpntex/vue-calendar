@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Calendar/>
+    <h1>Calendar Reminders</h1>
+    <Calendar class="calendar"/>
   </div>
 </template>
 
@@ -15,9 +16,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
-  margin-top: 40px;
-  padding: 30px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .calendar {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  }
 }
 </style>
