@@ -54,7 +54,7 @@ import Button from '../common/Button';
 import Modal from '../common/Modal';
 
 // vuex
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 
 export default {
   components: {
@@ -80,10 +80,16 @@ export default {
       return this.buildCalendar(this.month, this.reminders);
     }
   },
+  created() {
+    this.setReminders();
+  },
   methods: {
     ...mapMutations({
       nextMonth: 'calendar/nextMonth',
-      prevMonth: 'calendar/prevMonth',
+      prevMonth: 'calendar/prevMonth'
+    }),
+    ...mapActions({
+      setReminders: 'calendar/setReminders',
       saveReminder: 'calendar/saveReminder',
       deleteReminder: 'calendar/deleteReminder'
     }),

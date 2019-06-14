@@ -1,26 +1,9 @@
 import XDate from '../../utils/date';
-
-const REMINDERS = 'reminders';
-
-const getId = () => '_' + Math.random().toString(36).substr(2, 9);
-const getReminders = () => {
-  try {
-    return JSON.parse(localStorage.getItem(REMINDERS)) || [];
-  } catch (e) {
-    return [];
-  }
-}
-const storeReminders = (reminders) => {
-  try {
-    return localStorage.setItem(REMINDERS, JSON.stringify(reminders));
-  } catch (e) {
-    return e;
-  }
-}
+import { db } from '../../main';
 
 const state = {
   month: 0,
-  reminders: getReminders()
+  reminders: []
 };
 
 const getters = {
@@ -31,42 +14,47 @@ const getters = {
 };
 
 const mutations = {
+  setReminders(state, reminders) {
+    state.reminders = reminders;
+  },
   nextMonth(state) {
     state.month++;
   },
   prevMonth(state) {
     state.month--;
-  },
-  deleteReminder(state, reminder) {
-    const index = state.reminders.findIndex(o => o.id === reminder.id);
-    if (index !== -1) {
-      state.reminders.splice(index, 1);
-
-      storeReminders(state.reminders);
-    }
-  },
-  saveReminder(state, reminder) {
-    const { id, date, time, color, message } = reminder;
-
-    if (reminder.id) {
-      const index = state.reminders.findIndex(o => o.id === reminder.id);
-
-      if (index !== -1) {
-        Object.assign(state.reminders[index], {
-          id, date, time, color, message
-        });
-      }
-    } else {
-      state.reminders.push({
-        id: getId(), date, time, color, message
-      });
-    }
-
-    storeReminders(state.reminders);
   }
 };
 
-const actions = {};
+const actions = {
+  setReminders({ commit }) {
+    let reminders = [];
+
+    db.collection('reminders').onSnapshot((snapshot) => {
+      reminders = [];
+      snapshot.forEach((doc) => {
+        reminders.push({ id: doc.id, ...doc.data() });
+      });
+
+      commit('setReminders', reminders);
+    });
+  },
+  deleteReminder(_, reminder) {
+    return db.collection('reminders').doc(reminder.id).delete();
+  },
+  saveReminder(_, reminder) {
+    const { id, date, time, color, message } = reminder;
+
+    if (id) {
+      return db.collection('reminders').doc(id).set({
+        date, time, color, message
+      });
+    } else {
+      return db.collection('reminders').add({
+        date, time, color, message
+      });
+    }
+  }
+};
 
 export default {
   namespaced: true,
