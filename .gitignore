@@ -1,0 +1,16 @@
+# production
+/dist
+
+# Ignore NPM folders and files.
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Other generated/common stuff.
+newrelic_agent.log
+lighthouse.html
+.tmp
+.publish/
+.idea
+.DS_Store

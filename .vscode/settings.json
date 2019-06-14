@@ -1,0 +1,12 @@
+{
+  "html.format.maxPreserveNewLines": 2,
+  "html.format.endWithNewline": true,
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "editor.rulers": [
+    100
+  ],
+  "eslint.autoFixOnSave": true,
+  "eslint.enable": true
+}
