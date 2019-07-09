@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/vue-calendar/precache-manifest.bd7c90e181601ebbfe5ea2f111cfdeaa.js"
+  "/vue-calendar/precache-manifest.909b0f327678cb9ac341e353271bbc20.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "reminders"});

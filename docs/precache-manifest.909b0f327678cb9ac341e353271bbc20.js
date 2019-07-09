@@ -8,11 +8,11 @@ self.__precacheManifest = [
     "url": "/vue-calendar/js/chunk-vendors.d16d9385.js"
   },
   {
-    "revision": "80e78a183e331978e9f3",
-    "url": "/vue-calendar/js/app.0cf7cd6e.js"
+    "revision": "538319cd8b6c6e7177fa",
+    "url": "/vue-calendar/js/app.22dc0947.js"
   },
   {
-    "revision": "151534b84ae57432867fe17ed1bfbe56",
+    "revision": "3a7ea5a14178142ecfd463359225d1b6",
     "url": "/vue-calendar/index.html"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/vue-calendar/css/chunk-vendors.5f3c27d8.css"
   },
   {
-    "revision": "80e78a183e331978e9f3",
-    "url": "/vue-calendar/css/app.4655d873.css"
+    "revision": "538319cd8b6c6e7177fa",
+    "url": "/vue-calendar/css/app.0af5c564.css"
   },
   {
     "revision": "67945272732e2c8f8c077378789ee5cf",

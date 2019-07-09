@@ -1,9 +1,9 @@
 <template>
   <div class="calendar">
     <div class="calendar-header">
-      <Button icon="chevron_left" @click="prevMonth"/>
+      <Button icon="chevron_left" @click="prevMonth" />
       <div class="calendar-header__title">{{getHeaderText(month)}}</div>
-      <Button icon="chevron_right" @click="nextMonth"/>
+      <Button icon="chevron_right" @click="nextMonth" />
     </div>
 
     <div class="calendar-week">
@@ -260,6 +260,9 @@ export default {
       .calendar-day__date {
         background-color: #3969a3;
         color: #fff;
+        width: 24px;
+        height: 24px;
+        text-align: center;
       }
     }
 
